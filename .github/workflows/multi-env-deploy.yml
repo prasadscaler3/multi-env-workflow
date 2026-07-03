@@ -1,29 +1,28 @@
-name: mulit-env-workflow
+name: Multi-Environment Deployment
 
-on: 
+on:
   workflow_dispatch:
     inputs:
-      target_env:
-        description: 'Choose deployment target'
+      environment:
+        description: 'Target deployment environment'
         type: choice
         required: true
-        default: 'development'
+        default: 'dev'
         options:
           - dev
           - staging
           - prod
 
 jobs:
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
-    steps: 
-      - name: checkout code
+    steps:
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: execute deploymet logic
-        run : |
-          echo "Deployment to ${{ github.event.inputs.target_env }} completed successfully."
-
-
-
+      - name: Execute Deployment Logic
+        run: |
+          echo "Initiating deployment pipeline..."
+          echo "Deploying application to the ${{ github.event.inputs.environment }} environment."
+          echo "Deployment to ${{ github.event.inputs.environment }} completed successfully."
 
