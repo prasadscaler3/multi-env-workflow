@@ -22,9 +22,7 @@ jobs:
 
       - name: execute deploymet logic
         run : |
-          echo "Initiating deployment pipeline..."
-          echo "Deploying application to the ${{ github.event.inputs.environment }} environment."
-          echo "Deployment to ${{ github.event.inputs.environment }} completed successfully."
+          echo "Deployment to ${{ github.event.inputs.target_env }} completed successfully."
 
 
 
